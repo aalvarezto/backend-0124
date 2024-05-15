@@ -30,4 +30,10 @@ app.post(
   } // Esto sería la instrucción.
 );
 
+app.get("/alumnos", (req, res) => {
+  const pathAlumnos = path.resolve("public", "alumnos.html");
+
+  res.status(200).sendFile(pathAlumnos);
+});
+
 app.listen(PORT, () => console.log(`¡Escuchando en el puerto ${PORT}!`));
