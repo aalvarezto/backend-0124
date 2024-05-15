@@ -1,5 +1,6 @@
 "use strict";
 
+const path = require("path");
 const express = require("express");
 const app = express();
 const PORT = 8080;
@@ -14,6 +15,12 @@ app.get(
     res.status(200).json({ success: true }); // este llamado finaliza la instrucción.
   } // Esto sería la instrucción.
 );
+
+app.get("/nota", (req, res) => {
+  const filePath = path.resolve("public", "index.html");
+
+  res.status(200).sendFile(filePath);
+});
 
 app.post(
   "/alumno", // Esto sería la acción.
