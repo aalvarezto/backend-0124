@@ -30,8 +30,10 @@ app.post(
   } // Esto sería la instrucción.
 );
 
-app.get("/alumnos", (req, res) => {
+app.get("/alumnos*", (req, res) => {
   const pathAlumnos = path.resolve("public", "alumnos.html");
+
+  console.log(req.url);
 
   res.status(200).sendFile(pathAlumnos);
 });
